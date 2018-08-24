@@ -74,3 +74,16 @@ fos_rest:
         formats: { json: true, xml: false, rss: false }
     serializer:
         serialize_null: true
+
+fos_user:
+    ## Your configuration for FOS
+    db_driver: orm
+    firewall_name: main
+    user_class: userBundle\Entity\User
+    group:
+        group_class: userBundle\Entity\Group
+
+    ## To solve the problem
+    from_email:
+        address: "fenosonrobert@gmail.com"
+        sender_name: "No Reply"
