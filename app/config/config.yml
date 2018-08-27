@@ -9,6 +9,7 @@ parameters:
     locale: en
 
 framework:
+    translator: ~
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -79,11 +80,19 @@ fos_user:
     ## Your configuration for FOS
     db_driver: orm
     firewall_name: main
-    user_class: userBundle\Entity\User
+    user_class: AppBundle\Entity\User
     group:
-        group_class: userBundle\Entity\Group
+        group_class: AppBundle\Entity\User
 
-    ## To solve the problem
+
+## To solve the problem
     from_email:
         address: "fenosonrobert@gmail.com"
         sender_name: "No Reply"
+
+lexik_jwt_authentication:
+    private_key_path: '%kernel.root_dir%/../var/jwt/private.pem'
+    public_key_path:  '%kernel.root_dir%/../var/jwt/public.pem%'
+    pass_phrase:      '%jwt_key_pass_phrase%'
+    token_ttl:        3600
+

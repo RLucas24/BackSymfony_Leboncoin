@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\User;
+use AppBundle\Entity\UserOld;
 
 class UserController extends Controller{
 
@@ -19,7 +19,7 @@ class UserController extends Controller{
      */
     public function getUserAction(Request $request){
         $users = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('AppBundle:User')
+            ->getRepository('AppBundle:UserOld')
             ->findAll();
 
         $formatted = [];
