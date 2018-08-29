@@ -19,7 +19,7 @@ class UserController extends Controller{
      */
     public function getUserAction(Request $request){
         $users = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('AppBundle:UserOld')
+            ->getRepository('AppBundle:User')
             ->findAll();
 
         $formatted = [];
@@ -28,8 +28,6 @@ class UserController extends Controller{
                 'id' => $user->getId(),
                 'username' => $user->getUsername(),
                 'email' => $user->getEmail(),
-                'datePostUser' => $user->getDatePostUser(),
-                'typeUser' => $user->getTypeUser(),
             ];
         }
 
